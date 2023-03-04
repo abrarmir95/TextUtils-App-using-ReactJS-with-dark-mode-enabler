@@ -32,7 +32,55 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.textform-container {
+  width: 555px;
+  margin-left: 422px;
+}
+
+.textform-h3 {
+  margin-left: 95px;
+  margin-top: 45px;
+}
+
+.text1 {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 123px;
+}
+
+.text2 {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 92px;
+}
+
+.parastext1 {
+  margin-left: 55px;
+}
+
+.parastext2 {
+  margin-left: 42px;
+}
+
+.navbar {
+  margin-left: -123px;
+  margin-right: -123px;
+}
+
+.about-container {
+  margin-left: 383px;
+  width: 700px;
+  margin-top: 20px;
+}
+
+.about-h1 {
+  margin-left: 235px;
+  font-size: 32px;
 }

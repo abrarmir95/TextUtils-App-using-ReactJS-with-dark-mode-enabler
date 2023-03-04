@@ -1,24 +1,67 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import About from './components/About';
+// import Color from './components/Color';
+import Navbar from './components/Navbar';
+import TextForm from './components/TextForm';
+// import Counter from './components/Counter.js';
+import { useState } from 'react';
+import React from "react";
+// import {
+//   BrowserRouter as Router,
+//   Switch,
+//   Route,
+//   Link
+// } from "react-router-dom";
+
+
+
 
 function App() {
+  const [mode, setMode] = useState('light')
+  const [colorHandler, setColorHandler] = useState('dark')
+  const [labelHandler, setLabelHandler] = useState('Enable DarkMode')
+  const [areacolorHandler, settextAreacolorHandler] = useState('light')
+  const [formColorr, setformColorr] = useState('dark')
+
+  const toggleMode = () => {
+    if (mode === 'light') {
+      setMode('dark')
+      setColorHandler('white')
+      setLabelHandler('Disable DarkMode')
+      document.body.style.backgroundColor = '#030e1e'
+      settextAreacolorHandler('secondary')
+      setformColorr('light')
+
+    }
+    else {
+      setMode('light')
+      setColorHandler('dark')
+      setLabelHandler('Enable DarkMode')
+      document.body.style.backgroundColor = 'white'
+      settextAreacolorHandler('light')
+      setformColorr('dark')
+
+    }
+
+
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+  
+      <div className="container">
+        <Navbar title="TextUtils" about="AboutTextUtils" home="Home" Mode={mode} toggler={toggleMode} color={colorHandler} label={labelHandler} />
+      </div>
+      
+      
+          <About />
+       
+   
+        
+        <TextForm heading="Enter the text here to analyze:" areaColor={areacolorHandler} formColor={formColorr} />
+        
+      
+    </>
   );
 }
 
