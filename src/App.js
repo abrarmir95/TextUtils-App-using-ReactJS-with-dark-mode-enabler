@@ -7,12 +7,12 @@ import TextForm from './components/TextForm';
 // import Counter from './components/Counter.js';
 import { useState } from 'react';
 import React from "react";
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 
@@ -48,19 +48,24 @@ function App() {
   }
   return (
     <>
-  
+    <Router>
+        <Navbar title="TextUtils" about="About" Mode={mode} toggler={toggleMode} color={colorHandler} label={labelHandler} />
+      
       <div className="container">
-        <Navbar title="TextUtils" about="AboutTextUtils" home="Home" Mode={mode} toggler={toggleMode} color={colorHandler} label={labelHandler} />
+      <Switch>
+          <Route exact path="/">
+          <TextForm heading="Enter the text here to analyze:" areaColor={areacolorHandler} formColor={formColorr} />
+          </Route>
+
+          <Route exact path="/about">
+            <About />
+          </Route>
+          
+
+        </Switch>
+
       </div>
-      
-      
-          <About />
-       
-   
-        
-        <TextForm heading="Enter the text here to analyze:" areaColor={areacolorHandler} formColor={formColorr} />
-        
-      
+      </Router>
     </>
   );
 }
